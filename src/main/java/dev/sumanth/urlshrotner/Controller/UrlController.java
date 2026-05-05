@@ -20,6 +20,7 @@ public class UrlController {
         String shortCode = urlService.shorten(body.get("url"));
         return ResponseEntity.ok("http://localhost:8080/" + shortCode);
     }
+
     @GetMapping("/{code}")
     public ResponseEntity<Void> redirect(@PathVariable String code) {
         String originalUrl = urlService.resolve(code);
